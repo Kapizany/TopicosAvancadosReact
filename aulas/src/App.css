@@ -1,0 +1,24 @@
+
+.btn{
+  position: relative;
+  left: 0;
+  opacity: 1;
+  transition: all 0.5s ease;
+  background-color: green;
+  border: lightgray 5px solid;
+  color: white;
+}
+
+.btn.saindo, .btn.entrando{
+  left: 100px;
+  opacity: 0;
+  background-color: gray;
+  border: lightgreen 5px solid;
+}
+
+
+
+
+
+
+
