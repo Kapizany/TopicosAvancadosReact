@@ -116,7 +116,10 @@ header{
   left: 100px;
   opacity: 0;
 }
-
+.saindo,.entrando{
+  left: 100px;
+  opacity: 0;
+}
 .product-list-item:hover{
   background-color: #fff;
   transform: scale(1.1);

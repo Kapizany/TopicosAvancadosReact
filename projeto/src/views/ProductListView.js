@@ -26,7 +26,7 @@ function ProductListView(){
     }
 
     async function remove(id){
-        const prod = products;
+        const prod = await ProductService.list();
         const prodIndex = prod.findIndex(product => product.id == id);
         prod.splice(prodIndex,1);
         setProducts(prod);
