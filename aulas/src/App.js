@@ -1,48 +1,31 @@
 import React from 'react';
 import './App.css';
-import {useState} from 'react';
-import {TransitionGroup,CSSTransition} from 'react-transition-group';
+import DateTimeInsertion from './components/DateTimeInsertion';
+import Index from './views/index';
+import About from './views/about';
+import {BrowserRouter as Router, Route, Link, Prompt} from 'react-router-dom'
 
 function App() {
 
-  const [myList, setList] = useState([]);
-
-  function add(){
-    setList([...myList, {'id': Date.now()}]);
-  }
-
-  function remove(){
-    if(myList.length){
-      setList(myList.slice(1,myList.length));
-    }
-    
-  }
-
   return (
     <div className="App">
+      <Router>
         <div>
-          <button onClick={() => add()}>ADD</button>
-          <button onClick={() => remove()}>REMOVE</button>
-          <TransitionGroup>
-            {
-              myList.map( item => {
-                return (
-                      <CSSTransition key={item.id} timeout={{
-                                                enter:300,
-                                                exit:500
-                                              }} classNames={{
-                                                enter:'entrando',
-                                                exitActive: 'saindo'
-                                              }}>
-                                               <div className={'btn'}> {item.id} </div>
-                      </CSSTransition>
-                )
-              })
-            }
-              
-          </TransitionGroup>
-          
+        <Prompt 
+          when={true} 
+          message={(location) => {return `Deseja ir para ${location.pathname}`}}/>
+          <nav>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/datetime/">Counter</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
+          </nav>
+          <Route path="/datetime/" component={DateTimeInsertion}/>
+          <Route path="/" exact={true} component={Index}/>
+          <Route path="/about" component={About}/>
         </div>
+      </Router>
     </div>
   );
 }

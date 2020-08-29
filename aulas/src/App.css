@@ -3,6 +3,8 @@
   position: relative;
   left: 0;
   opacity: 1;
+  padding: 2px;
+  margin: 5px;
   transition: all 0.5s ease;
   background-color: green;
   border: lightgray 5px solid;
@@ -14,6 +16,10 @@
   opacity: 0;
   background-color: gray;
   border: lightgreen 5px solid;
+}
+
+.buttons{
+  margin: 10px;
 }
 
 
